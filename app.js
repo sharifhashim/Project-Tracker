@@ -34,4 +34,7 @@ app.use("/api/projects", projectTicketsRouter(dbHelpers));
 app.use("/api/users", getUsersRouter(dbHelpers));
 app.use("/api", addLoginRouter(dbHelpers));
 
+app.get("*", (req, res) => {
+  res.send("404 Page Not Found");
+});
 module.exports = app;

@@ -7,7 +7,7 @@ export default function useProjectsData(value) {
 
   function refresh() {
     return axios
-      .get("http://localhost:8081/api/projects/details")
+      .get("/api/projects/details")
       .then((details) => {
         console.log(details.data);
         setProjects(...projects, details.data);
@@ -17,7 +17,7 @@ export default function useProjectsData(value) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/projects/details/devs")
+      .get("/api/projects/details/devs")
       .then((details) => {
         console.log(details.data);
         setProjects(...projects, details.data);

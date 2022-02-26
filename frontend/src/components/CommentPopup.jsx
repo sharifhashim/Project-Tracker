@@ -97,17 +97,12 @@ export default function CustomizedDialogs(props) {
 
   function addComment() {
     return axios
-      .post(
-        `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}/comments`,
-        {
-          comment: comment,
-        }
-      )
+      .post(`/api/projects/${project_id}/tickets/${ticket_id}/comments`, {
+        comment: comment,
+      })
       .then((response) => {
         axios
-          .get(
-            `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}/comments`
-          )
+          .get(`/api/projects/${project_id}/tickets/${ticket_id}/comments`)
           .then((response) => {
             console.log("response", response);
             props.setComments(response.data);

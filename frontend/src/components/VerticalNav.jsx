@@ -20,7 +20,7 @@ export default function VerticalNav(props) {
 
   // If the user is not logged in, user will be redirected to login page
   React.useEffect(() => {
-    axios.get("http://localhost:8081/api/login").then((response) => {
+    axios.get("/api/login").then((response) => {
       if (response.data.loggedIn === false) {
         window.location.href = "/login";
       }
@@ -33,7 +33,7 @@ export default function VerticalNav(props) {
 
   function addProject(value) {
     return axios
-      .post("http://localhost:8081/api/projects", {
+      .post("/api/projects", {
         projectName: value,
       })
       .then(
@@ -42,17 +42,15 @@ export default function VerticalNav(props) {
           const projectTitle = response.data[0].name;
           userId.forEach((user) => {
             axios
-              .post("http://localhost:8081/api/projects/user_project", {
+              .post("/api/projects/user_project", {
                 project_id: projectID,
                 project_name: projectTitle,
                 user_id: user,
               })
               .then((response) => {
-                axios
-                  .get("http://localhost:8081/api/projects/details")
-                  .then((details) => {
-                    setState(details.data);
-                  });
+                axios.get("/api/projects/details").then((details) => {
+                  setState(details.data);
+                });
                 return state;
               });
           });

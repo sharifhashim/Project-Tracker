@@ -44,7 +44,7 @@ export default function BasicCard() {
 
   function login() {
     return axios
-      .post(`http://localhost:8081/api/login`, {
+      .post(`/api/login`, {
         email,
         password,
       })
@@ -54,7 +54,7 @@ export default function BasicCard() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:8081/api/login").then((response) => {
+    axios.get("/api/login").then((response) => {
       if (response.data.loggedIn === true) {
         const username = response.data.user.full_name;
         window.location.href = "/";

@@ -6,9 +6,7 @@ export default function useCommentsData(project_id, ticket_id) {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}/comments`
-      )
+      .get(`/api/projects/${project_id}/tickets/${ticket_id}/comments`)
       .then((details) => {
         console.log(details.data);
         setComments(details.data);

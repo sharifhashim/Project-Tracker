@@ -36,7 +36,7 @@ export default function UsersDropDown(props) {
 
   React.useEffect(() => {
     return axios
-      .get("http://localhost:8081/api/users")
+      .get("/api/users")
       .then((users) => {
         console.log("users", users.data);
         setNames(users.data);

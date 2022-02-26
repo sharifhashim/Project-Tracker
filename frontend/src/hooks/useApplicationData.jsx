@@ -7,7 +7,7 @@ export default function useApplicationData(initial) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/projects/details")
+      .get("/api/projects/details")
       .then((details) => {
         console.log(details.data);
         setState(...state, details.data);

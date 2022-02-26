@@ -106,7 +106,7 @@ export default function TicketPopUp(props) {
 
   function addTicket() {
     return axios
-      .post(`http://localhost:8081/api/projects/${project_id}`, {
+      .post(`/api/projects/${project_id}`, {
         ticketName: name,
         description: description,
         priority: priority,
