@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -106,7 +106,7 @@ export default function TicketPopUp(props) {
 
   function addTicket() {
     return axios
-      .post(`http://localhost:8080/api/projects/${project_id}`, {
+      .post(`http://localhost:8081/api/projects/${project_id}`, {
         ticketName: name,
         description: description,
         priority: priority,
@@ -125,15 +125,13 @@ export default function TicketPopUp(props) {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#00675b',
+        main: "#00675b",
       },
       secondary: {
-        main: '#00675b',
+        main: "#00675b",
       },
       typography: {
-        fontFamily: [
-          '"Anton"',
-        ].join(','),
+        fontFamily: ['"Anton"'].join(","),
       },
     },
   });

@@ -7,7 +7,7 @@ export default function useProjectDetail(project_id) {
   const [status, setStatus] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/projects/${project_id}`)
+      .get(`http://localhost:8081/api/projects/${project_id}`)
       .then((details) => {
         console.log("details name", details.data);
         setProjects(...projects, details.data);

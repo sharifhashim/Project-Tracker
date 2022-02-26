@@ -32,7 +32,7 @@ export default function ButtonAppBar() {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/login").then((response) => {
+    axios.get("http://localhost:8081/api/login").then((response) => {
       if (response.data.loggedIn === true) {
         setUsername(response.data.user.full_name);
       }
@@ -40,7 +40,7 @@ export default function ButtonAppBar() {
   }, []);
 
   const handleLogoutClick = () => {
-    axios.post("http://localhost:8080/api/logout").then(() => {
+    axios.post("http://localhost:8081/api/logout").then(() => {
       {
         window.location.href = "/login";
       }
@@ -70,24 +70,22 @@ export default function ButtonAppBar() {
               sx={{ flexGrow: 1 }}
             ></Typography>
 
-            {
-              username !== "" ? (
-                <>
-                  <ListItemAvatar>
-                    <Avatar sx={{ bgcolor: "#80cbc4" }}>
-                      {username.charAt(0)}
-                    </Avatar>
-                  </ListItemAvatar>
-                  <Button
-                    color="secondary"
-                    variant="outlined"
-                    onClick={() => handleLogoutClick()}
-                  >
-                    Logout
-                  </Button>
-                </>
-              ) : null
-            }
+            {username !== "" ? (
+              <>
+                <ListItemAvatar>
+                  <Avatar sx={{ bgcolor: "#80cbc4" }}>
+                    {username.charAt(0)}
+                  </Avatar>
+                </ListItemAvatar>
+                <Button
+                  color="secondary"
+                  variant="outlined"
+                  onClick={() => handleLogoutClick()}
+                >
+                  Logout
+                </Button>
+              </>
+            ) : null}
           </Toolbar>
         </AppBar>
       </Box>

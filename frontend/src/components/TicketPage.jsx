@@ -43,7 +43,7 @@ export default function TicketPage(props) {
   function editTicket() {
     return axios
       .put(
-        `http://localhost:8080/api/projects/${project_id}/tickets/${ticket_id}`,
+        `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}`,
         {
           priority: ticketState.priority,
           status: ticketState.status,
@@ -54,7 +54,7 @@ export default function TicketPage(props) {
       .then((response) => {
         axios
           .get(
-            `http://localhost:8080/api/projects/${project_id}/tickets/${ticket_id}`
+            `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}`
           )
           .then((details) => {
             console.log(details.data);

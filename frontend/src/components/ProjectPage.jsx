@@ -34,7 +34,7 @@ export default function ProjectPage() {
 
   React.useEffect(() => {
     return axios
-      .get("http://localhost:8080/api/users")
+      .get("http://localhost:8081/api/users")
       .then((users) => {
         setNames(users.data);
       })
@@ -45,7 +45,7 @@ export default function ProjectPage() {
 
   function editProject(projectName, event, status, ids) {
     return axios
-      .put(`http://localhost:8080/api/projects/${project_id}`, {
+      .put(`http://localhost:8081/api/projects/${project_id}`, {
         projectName,
         status: status,
       })
@@ -53,12 +53,12 @@ export default function ProjectPage() {
         console.log(response);
         axios
           .delete(
-            `http://localhost:8080/api/projects/${project_id}/user_project`
+            `http://localhost:8081/api/projects/${project_id}/user_project`
           )
           .then((response) => {
             ids.forEach((id) => {
               axios
-                .post("http://localhost:8080/api/projects/user_project", {
+                .post("http://localhost:8081/api/projects/user_project", {
                   project_id,
                   project_name: projectName,
                   user_id: id,
@@ -66,7 +66,7 @@ export default function ProjectPage() {
                 .then((response) => {
                   console.log("new user_project table", response);
                   axios
-                    .get(`http://localhost:8080/api/projects/${project_id}`)
+                    .get(`http://localhost:8081/api/projects/${project_id}`)
                     .then((details) => {
                       setProjects(details.data);
                     })

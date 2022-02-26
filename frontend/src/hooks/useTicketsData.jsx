@@ -6,7 +6,7 @@ export default function useTicketsData(project_id) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/projects/${project_id}/tickets`)
+      .get(`http://localhost:8081/api/projects/${project_id}/tickets`)
       .then((details) => {
         console.log(details.data);
         setTickets(details.data);

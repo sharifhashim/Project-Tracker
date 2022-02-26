@@ -98,7 +98,7 @@ export default function CustomizedDialogs(props) {
   function addComment() {
     return axios
       .post(
-        `http://localhost:8080/api/projects/${project_id}/tickets/${ticket_id}/comments`,
+        `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}/comments`,
         {
           comment: comment,
         }
@@ -106,7 +106,7 @@ export default function CustomizedDialogs(props) {
       .then((response) => {
         axios
           .get(
-            `http://localhost:8080/api/projects/${project_id}/tickets/${ticket_id}/comments`
+            `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}/comments`
           )
           .then((response) => {
             console.log("response", response);

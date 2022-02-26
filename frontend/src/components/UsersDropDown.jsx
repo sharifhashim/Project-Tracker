@@ -36,7 +36,7 @@ export default function UsersDropDown(props) {
 
   React.useEffect(() => {
     return axios
-      .get("http://localhost:8080/api/users")
+      .get("http://localhost:8081/api/users")
       .then((users) => {
         console.log("users", users.data);
         setNames(users.data);
@@ -50,9 +50,7 @@ export default function UsersDropDown(props) {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      typeof value === "string" ? value.split(",") : value
-    );
+    setPersonName(typeof value === "string" ? value.split(",") : value);
     props.setUsers(value);
     const newArr = names.find(
       (name) => name.full_name === value[value.length - 1]

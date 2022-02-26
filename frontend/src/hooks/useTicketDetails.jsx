@@ -13,7 +13,7 @@ export default function useTicketDetails(project_id, ticket_id) {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/api/projects/${project_id}/tickets/${ticket_id}`
+        `http://localhost:8081/api/projects/${project_id}/tickets/${ticket_id}`
       )
       .then((details) => {
         console.log(details.data);
