@@ -32,10 +32,16 @@ const addLoginRouter = require("./routes/login");
 
 app.use("/api/projects", projectsRouter(dbHelpers));
 app.use("/api/projects", projectTicketsRouter(dbHelpers));
-app.use("/api/users", getUsersRouter(dbHelpers));
+//app.use("/api/users", getUsersRouter(dbHelpers));
 app.use("/api", addLoginRouter(dbHelpers));
 
-app.get("*", (req, res) => {
-  res.send("404 Page Not Found");
+app.get("/api/users", (req, res) => {
+  db.query(`SELECT users.full_name, users.id from users;`)
+    .then((users) => res.json(users.rows))
+    .catch((err) =>
+      res.json({
+        error: err.message,
+      })
+    );
 });
 module.exports = app;
