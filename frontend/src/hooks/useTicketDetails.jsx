@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../api/axios";
 
 export default function useTicketDetails(project_id, ticket_id) {
   const [ticket, setTicket] = useState([]);

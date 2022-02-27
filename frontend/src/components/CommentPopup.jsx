@@ -1,5 +1,5 @@
 import * as React from "react";
-import axios from "axios";
+import axios from "../api/axios";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";

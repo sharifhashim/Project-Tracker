@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import axios from "axios";
+import React from "react";
+import axios from "../api/axios";
 import BasicTable from "./BasicTable";
 import ButtonSort from "./ButtonSort";
 import SearchField from "./SearchField";
@@ -19,13 +19,13 @@ export default function VerticalNav(props) {
   const [filterSelected, setFilterSelected] = React.useState("All");
 
   // If the user is not logged in, user will be redirected to login page
-  React.useEffect(() => {
-    axios.get("/api/login").then((response) => {
-      if (response.data.loggedIn === false) {
-        window.location.href = "/login";
-      }
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   axios.get("/api/login").then((response) => {
+  //     if (response.data.loggedIn === false) {
+  //       window.location.href = "/login";
+  //     }
+  //   });
+  // }, []);
 
   React.useEffect(() => {
     setProjects(state);

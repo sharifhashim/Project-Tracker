@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../api/axios";
 
 export default function useCommentsData(project_id, ticket_id) {
   const [comments, setComments] = useState([]);

@@ -1,5 +1,5 @@
 import * as React from "react";
-import axios from "axios";
+import axios from "../api/axios";
 import { useParams } from "react-router";
 import BreadCrumbs from "./BreadCrumbs";
 import TicketsList from "./TicketsList";

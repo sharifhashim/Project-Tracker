@@ -14,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <>
-        <NavBar className="NavBar"/>
+        <NavBar className="NavBar" />
         <Routes>
-        <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/" element={<VerticalNav />}></Route>
           <Route
             path="/projects/:project_id"

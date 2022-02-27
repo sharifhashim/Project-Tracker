@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../api/axios";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";

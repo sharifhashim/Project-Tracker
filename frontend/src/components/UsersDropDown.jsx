@@ -1,5 +1,5 @@
 import * as React from "react";
-import axios from "axios";
+import axios from "../api/axios";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Select from "@mui/material/Select";
